@@ -1,0 +1,15 @@
+{
+  "name": "pca",
+  "version": "1.0.0",
+  "description": "Implementación de PCA en 2D usando p5.js ",
+  "main": "sketch.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "javascript",
+    "p5.js"
+  ],
+  "author": "",
+  "license": "MIT"
+}
