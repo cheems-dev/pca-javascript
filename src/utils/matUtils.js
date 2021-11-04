@@ -1,3 +1,8 @@
+/**
+ * Encontrar un promedio dado un numero natural
+ * @param {number} x - numero natural
+ * @returns number
+ */
 function mean(x) {
   return x.reduce((accum, curr) => accum + curr) / x.length
 }
@@ -7,7 +12,7 @@ function myRound(x, n) {
   return Math.round(x * mag) / mag
 }
 
-// A lot of assuming good input is going on in the matrix functions
+// Se supone que se está realizando una buena entrada en las funciones matriciales.
 function matTrace(a) {
   let traceTotal = 0
   for (let i = 0; i < a.length; i += 1) {
@@ -40,18 +45,26 @@ function matMul(a, b) {
   return output
 }
 
+/**
+ * PASO 1: ESTANDARIZACIÓN
+ * Funcion para encontrar la covarianza de dos matrices
+ * @param {Array<number>} x - arreglos de numero del eje x
+ * @param {Array<number>} y - arreglo de numeros del eye y
+ * @returns number
+ */
 function covariance(x, y) {
   const xMean = mean(x)
   const yMean = mean(y)
 
   let numerator = 0
-  for (let i = 0; i < x.length; i += 1) {
+  for (let i = 0; i < x.length; i++) {
     numerator += (x[i] - xMean) * (y[i] - yMean)
   }
 
   return numerator / (y.length - 1)
 }
 
+/* PASO 2: CÁLCULO DE LA MATRIZ DE COVARIANZA */
 function covarianceMatrix2d(X) {
   const x = X.map((row) => row[0])
   const y = X.map((row) => row[1])
@@ -60,7 +73,7 @@ function covarianceMatrix2d(X) {
   const covYY = covariance(y, y)
   let covXY = covariance(x, y)
 
-  // Convert -0 to 0 (only really care about off diag)
+  // Convierta -0 en 0 (solo realmente me importa el off diag)
   if (abs(covXY) < 0.005) {
     covXY = 0.0
   }
@@ -79,7 +92,7 @@ function eigenvalues2by2(a) {
   const root1 = (trA + quadraticPart2) / 2
   const root2 = (trA - quadraticPart2) / 2
 
-  // ignore sign and sort
+  // ignora inicio y ordenar
   const roots = [root1, root2].sort((x, y) => abs(y) - abs(x))
 
   return roots
@@ -119,7 +132,7 @@ function eigenvectors2by2(m, eigenvalues) {
     ev2[1] *= -1
   }
 
-  // normalize
+  // normalizar
   const ev1Mag = dist(0, 0, ev1[0], ev1[1])
   const ev2Mag = dist(0, 0, ev2[0], ev2[1])
 

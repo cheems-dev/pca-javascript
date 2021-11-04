@@ -31,7 +31,7 @@ function genData2d() {
     output[r][1] = yVal
   }
 
-  // sort by 1st column (will be x axis in plot)
+  // ordena por primera columna (puede ser el eje x en el plot)
   output = output.sort((x1, x2) => x2[0] - x1[0])
 
   const xMean = xSum / nRows

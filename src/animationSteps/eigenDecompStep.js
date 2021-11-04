@@ -49,7 +49,7 @@ export default function eigenDecompStep({
   textSize(18)
   noStroke()
   fill(0)
-  text('Covariance matrix:', dataTableX + textSize() * 0.5, dataTableY)
+  text('Matriz de covarianza:', dataTableX + textSize() * 0.5, dataTableY)
   fill(255, 100)
   displayUtils.displayTable2d(
     covarianceMatrix,
@@ -119,7 +119,7 @@ export default function eigenDecompStep({
   stroke(0)
   if (t > 150) {
     text(
-      `total variance = Sum(Eigenvalues) = ${eigVals[0].toFixed(
+      `Varianza total = Sum(Eigenvalues) = ${eigVals[0].toFixed(
         2
       )} + ${eigVals[1].toFixed(2)} = ~${(eigVals[0] + eigVals[1]).toFixed(2)}`,
       dataTableX + textSize() * 6,
@@ -128,7 +128,7 @@ export default function eigenDecompStep({
   }
 
   text(
-    `total variance = Var(x) + Var(y) = ${covarianceMatrix[0][0].toFixed(
+    `Varianza total  = Var(x) + Var(y) = ${covarianceMatrix[0][0].toFixed(
       2
     )} + ${covarianceMatrix[1][1].toFixed(2)} = ~${(
       covarianceMatrix[0][0] + covarianceMatrix[1][1]
@@ -139,7 +139,9 @@ export default function eigenDecompStep({
   pop()
 
   fill(150)
-  displayUtils.labelStep('Find the eigenvectors of the \ncovariance matrix')
+  displayUtils.labelStep(
+    'Encuentra el eigenvectors de la \nmatriz de covarianza'
+  )
 
   const isOver = t > 170
   return isOver

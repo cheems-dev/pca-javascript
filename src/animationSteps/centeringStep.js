@@ -15,7 +15,7 @@ export default function centeringStep({
 
   if (dataTableY === null) dataTableY = dataTableFontSize * 2
 
-  displayUtils.labelStep('Center')
+  displayUtils.labelStep('Centrar')
 
   const dataStep = plotUtils.animatePoints(
     data,

@@ -23,12 +23,10 @@ export default function calcCovMatStep({
   dataTableY = null,
 }) {
   if (dataTableX === null) {
-    // eslint-disable-next-line no-param-reassign
     dataTableX = -width / 2
   }
 
   if (dataTableY === null) {
-    // eslint-disable-next-line no-param-reassign
     dataTableY = dataTableFontSize * 2
   }
 
@@ -47,14 +45,15 @@ export default function calcCovMatStep({
   }
 
   if (t > zoomFrames + 50) {
-    // Variance scaled line on x axis
+    // varianza escalada linea en eje x
     strokeWeight(10)
     stroke(palette[palette.length - 3])
     line(0, 0, covarianceMatrix[0][0] * width, 0)
   }
 
   if (t > zoomFrames + 150) {
-    // Variance scaled line on y axis
+    // varianza escalada linea en eje y
+
     strokeWeight(10)
     stroke(palette[palette.length - 6])
     line(0, 0, 0, covarianceMatrix[1][1] * width)
@@ -153,7 +152,7 @@ export default function calcCovMatStep({
     textSize(dataTableFontSize * 1.1)
     fill(0)
     text(
-      `total variance = Var(x) + Var(y) = ${covarianceMatrix[0][0].toFixed(
+      `Varianza total = Var(x) + Var(y) = ${covarianceMatrix[0][0].toFixed(
         2
       )} + ${covarianceMatrix[1][1].toFixed(2)} = ~${(
         covarianceMatrix[0][0] + covarianceMatrix[1][1]
@@ -166,7 +165,7 @@ export default function calcCovMatStep({
 
   pop()
 
-  displayUtils.labelStep('Calculate covariance matrix')
+  displayUtils.labelStep('Calcular matriz de covarianza')
 
   const isOver = t > zoomFrames + 320
   return isOver

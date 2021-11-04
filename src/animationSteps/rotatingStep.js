@@ -71,7 +71,7 @@ export default function rotatingStep({
   displayUtils.displayTable2d(dataStep, dataTableX, dataTableY, palette)
   fill(0)
   text(
-    'Covariance matrix:',
+    'Matriz de covarianza:',
     dataTableX + textSize(),
     -height / 2 + textSize() * 10
   )
@@ -84,7 +84,7 @@ export default function rotatingStep({
   )
   pop()
 
-  displayUtils.labelStep('Rotate to max variance axes')
+  displayUtils.labelStep('Girar a los ejes de varianza maxima')
 
   const newAngle = currAngle + angleVel
   const isOver = abs(newAngle) <= abs(angleVel)

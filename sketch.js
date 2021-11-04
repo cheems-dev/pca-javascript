@@ -25,7 +25,7 @@ let eigVals
 let eigVectors
 let projectionMatrix
 
-// to be actual p5js vectors
+// Vectores
 let eigVector1
 let eigVector2
 
@@ -34,7 +34,7 @@ let currAngle = 0
 const angleSpeed = Math.PI / 1000
 let angleVel
 
-// UI elements
+// elementos UI
 let zoomP
 let controlsDiv
 let playPauseBtn
@@ -172,15 +172,11 @@ function windowResized() {
 
 function setup() {
   console.log(
-    "Controls: \n\
-\t* space bar to play/pause \n\
-\t* arrow keys to jump forwards/back \n\
-\t* r key to restart \n\
-\n\
-Be warned; if you're here to look at the code... don't. \n\
-The code is very admittably terrible; don't look at it. \n\
-Just go outside or something instead... c'mon. \n\
-"
+    'Controles: \n\
+\t* espacio para play/pause \n\
+\t* flechas para saltar hacia adelante/atras \n\
+\t* r para reiniciar \n\
+'
   )
   createCanvas(min([windowWidth, canvasW]), min([windowHeight, canvasW]))
 
@@ -189,33 +185,22 @@ Just go outside or something instead... c'mon. \n\
   dataTableX = -width / 2
   dataTableY = dataTableFontSize * 2
 
-  // eslint-disable-next-line no-undef
   zoomP = createP('<kbd>Ctrl</kbd>+<kbd>-</kbd> to zoom out')
   zoomP.position(0, 0)
   zoomP.center('horizontal')
   zoomP.hide()
 
-  // eslint-disable-next-line no-undef
   controlsDiv = createDiv()
 
-  // eslint-disable-next-line no-undef
-  // controlsP = createP('use <- & -> keys to jump back & forwards');
-  // controlsP.parent(controlsDiv);
-  // controlsP.style('font-family', 'monospace');
-  // controlsP.style('font-size', 10);
-
-  // eslint-disable-next-line no-undef
-  playPauseBtn = createButton('Pause')
+  playPauseBtn = createButton('Pausa')
   playPauseBtn.mousePressed(playPause)
   playPauseBtn.parent(controlsDiv)
 
-  // eslint-disable-next-line no-undef
-  restartBtn = createButton('Restart')
+  restartBtn = createButton('Reiniciar')
   restartBtn.mousePressed(restart)
   restartBtn.parent(controlsDiv)
 
-  // eslint-disable-next-line no-undef
-  pauseAfterStepCheckbox = createCheckbox('Pause after each step', true)
+  pauseAfterStepCheckbox = createCheckbox('Pausa después de cada paso', true)
   pauseAfterStepCheckbox.style('background-color', color(255, 150))
   pauseAfterStepCheckbox.style('display', 'inline-block')
   pauseAfterStepCheckbox.parent(controlsDiv)
@@ -261,7 +246,7 @@ function draw() {
     push()
     textSize(textSize() * 0.5)
     displayUtils.labelStepSubtitle(
-      '* space bar to play/pause \n* arrow keys to jump forwards/back \n* r key to restart \n'
+      '* espacio para play/pause \n* flechas para ir hacia atras/adelante \n* r para reiniciar \n'
     )
     pop()
 
