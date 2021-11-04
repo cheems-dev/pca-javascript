@@ -76,7 +76,7 @@ export default function eigenDecompStep({
 
   noStroke()
   if (t > 50) {
-    text('Eigenvectors:', 0, dataTableY)
+    text('Vectores propios:', 0, dataTableY)
     fill(255, 100)
     displayUtils.displayTable2d(
       [[projectionMatrix[0][0]], [projectionMatrix[1][0]]],
@@ -96,7 +96,7 @@ export default function eigenDecompStep({
 
   fill(0)
   if (t > 50) {
-    text('Eigenvalues:', 0, dataTableY + textSize() * 5)
+    text('Valores propios:', 0, dataTableY + textSize() * 5)
     fill(255, 100)
     displayUtils.displayTable2d(
       [[eigVals[0]]],
@@ -119,7 +119,7 @@ export default function eigenDecompStep({
   stroke(0)
   if (t > 150) {
     text(
-      `Varianza total = Sum(Eigenvalues) = ${eigVals[0].toFixed(
+      `Varianza total = Sum(valores propios) = ${eigVals[0].toFixed(
         2
       )} + ${eigVals[1].toFixed(2)} = ~${(eigVals[0] + eigVals[1]).toFixed(2)}`,
       dataTableX + textSize() * 6,
@@ -140,7 +140,7 @@ export default function eigenDecompStep({
 
   fill(150)
   displayUtils.labelStep(
-    'Encuentra el eigenvectors de la \nmatriz de covarianza'
+    'Encuentra los vectores propios de la \nmatriz de covarianza'
   )
 
   const isOver = t > 170

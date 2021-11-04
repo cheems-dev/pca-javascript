@@ -15,9 +15,8 @@ function myRound(x, n) {
 // Se supone que se está realizando una buena entrada en las funciones matriciales.
 function matTrace(a) {
   let traceTotal = 0
-  for (let i = 0; i < a.length; i += 1) {
-    traceTotal += a[i][i]
-  }
+  for (let i = 0; i < a.length; i++) traceTotal += a[i][i]
+
   return traceTotal
 }
 
@@ -50,7 +49,7 @@ function matMul(a, b) {
  * Funcion para encontrar la covarianza de dos matrices
  * @param {Array<number>} x - arreglos de numero del eje x
  * @param {Array<number>} y - arreglo de numeros del eye y
- * @returns number
+ * @returns Array<number>
  */
 function covariance(x, y) {
   const xMean = mean(x)
@@ -84,6 +83,11 @@ function covarianceMatrix2d(X) {
   ]
 }
 
+/**
+ * Funcion para obtener "valores propios"
+ * @param {Array<number>} a - arreglo de numeros naturales
+ * @returns Array<number>
+ */
 function eigenvalues2by2(a) {
   const trA = matTrace(a)
   const detA = determinant2by2(a)
@@ -92,7 +96,7 @@ function eigenvalues2by2(a) {
   const root1 = (trA + quadraticPart2) / 2
   const root2 = (trA - quadraticPart2) / 2
 
-  // ignora inicio y ordenar
+  // ordena de forma ascendente
   const roots = [root1, root2].sort((x, y) => abs(y) - abs(x))
 
   return roots
